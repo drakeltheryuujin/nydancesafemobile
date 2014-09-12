@@ -1,0 +1,98 @@
+/ Begin preloader
+#preloader{:style => "display: none;"}
+  #status{:style => "display: none;"}
+    #circleG
+      #circleG_1.circleG
+      #circleG_2.circleG
+      #circleG_3.circleG
+/ End preloader
+.col-md-12.content-column
+  / Header starts
+  .content-inner
+    %header{:role => "banner"}
+      .row
+        .col-xs-12
+          %a.logo{:href => "javascript:void(0)"}
+            %img{:alt => "", :height => "62", :src => "logo@2x.png", :width => "102"}/
+          / /.logo
+          .nav-container
+            .nav-handle
+              = fa_icon "bars"
+            %nav{:role => "navigation"}
+              %ul{:role => "menu"}
+                %li
+                  %a{:href => "javascript:void(0)"} Home
+                %li
+                  %a{:href => "javascript:void(0)"} About
+                %li
+                  %a{:href => "javascript:void(0)"} Contact
+          / /.nav-container
+    / Header ends
+    / Left column content starts
+    %main{:role => "main"}
+      .row
+        .main-column
+          / Home section starts
+          %section.home-panel{:style => "display: block;"}
+            .col-xs-12
+              %h1 We're almost there
+              %p We've been working on our new site and we’ll be live in a few days. If you want us to keep you updated, please subscribe to our mailing list.
+            .col-xs-12.text-center
+              %form.subscribe-form{:action => "", :method => "post"}
+                .subscribe-empty
+                  %input#subscribe-email.txt-subscribe{:name => "email", :placeholder => "Email Address", :required => "", :type => "email"}/
+                  %span.btn-subscribe-container
+                    %button#subscribe-submit.btn-subscribe Subscribe
+                    %img#subscribe-loading{:alt => "Loading...", :height => "62", :src => "loading.gif", :width => "62"}/
+                  .subscribe-error-field
+                .subscribe-message
+              / /.subscribe-form
+          / Home section ends
+          / About section starts
+          %section.about-panel
+            .col-xs-12
+              %h1 Here's what we're about
+              %p Sed sapien nibh, aliquet ut accumsan eu, auctor ac lectus. Aenean augue metus, tempor eu dignissim et, tempor ut urna. Proin risus dolor, dignissim a enim non, semper porttitor est. In blandit ac urna in molestie. Pellentesque luctus ornare tortor, et varius urna rhoncus ut.
+          / About section ends
+          / Contact section starts
+          %section.contact-panel
+            .col-xs-12
+              %h1 Give us a shout
+            .col-xs-12.text-center
+              = simple_form_for @contact, :html => {:class => 'form-horizontal contact-form' } do |f|
+                .contact-empty
+                  = f.input :name, :required => true, :class=> "txt-name"
+                  = f.input :email, :required => true, :class=> "txt-email"
+                  = f.input :message, :as => :text, :required => true, :class=> "txt-message"
+                  %div.hidden
+                    = f.input :nickname, :hint => 'Leave this field blank!'
+                  %span.btn-contact-container
+                    = f.button :submit, 'Send message', :class=> "btn btn-primary btn-contact"
+              / /.contact-form
+          / Contact section ends
+        / /.main-columns
+    / Left column content ends
+  / Footer starts
+  %footer{:role => "contentinfo"}
+    .row
+      .col-xs-12.col-lg-6
+        %ul.social-media
+          %li
+            %a{:href => "#"}
+              =fa_icon "facebook"
+          %li
+            %a{:href => "#"}
+              =fa_icon "twitter"
+          %li
+            %a{:href => "#"}
+              =fa_icon "linkedin"
+        / /.social-media
+      .col-xs-12.col-lg-6
+        %small
+          Copyright ©
+          :javascript
+            document.write((new Date()).getFullYear());
+          2014 -
+          %a{:href => "http://themeforest.net/user/ThemeToast"} ThemeToast
+  / Footer ends
+
